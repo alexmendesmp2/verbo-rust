@@ -1,5 +1,10 @@
 use std::ffi::{CString, CStr};
-use std::os::raw::c_char;
+use std::net::TcpStream;
+use std::io::{Read, Write};
+use std::os::raw::{c_char, c_int};
+
+extern crate oracle;
+use oracle::{Connection};
 
 #[no_mangle]
 pub extern "C" fn call_hsm(param: *const c_char) -> *mut c_char {
